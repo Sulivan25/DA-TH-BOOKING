@@ -1,0 +1,33 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Đặt chiều cao cho phần tử cha là toàn bộ chiều cao của viewport */
+  }
+  
+  .rContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .rInput {
+    height: 30px;
+    padding: 10px;
+  }
+  
+  .rButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .rButton:disabled {
+    background-color: #0071c28c;
+    cursor: not-allowed;
+  }
