@@ -2,6 +2,15 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+const Logout = () => {
+  localStorage.clear();
+  console.log();
+  const navigate = useNavigate();
+  navigate("/");
+};
+
 const Navbar = () => {
   const { user } = useContext(AuthContext);
 
@@ -12,11 +21,26 @@ const Navbar = () => {
           <span className="logo">GoGo</span>
         </Link>
         {user ? (
-          user.username
+          // user.username
+          <>
+            <span className="username">{user.username}</span>
+
+            <button className="navButton" onClick={Logout}>
+              Logout
+            </button>
+          </>
         ) : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <Link to="/register">
+              <button className="navButton" href="/register">
+                Register
+              </button>
+            </Link>
+            <Link to="/login">
+              <button className="navButton" href="/login">
+                Login
+              </button>
+            </Link>
           </div>
         )}
       </div>

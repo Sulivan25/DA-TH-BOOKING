@@ -1,9 +1,17 @@
 import { createContext, useEffect, useReducer } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem("user")) || null,
   loading: false,
   error: null,
+};
+
+export const Logout = () => {
+  localStorage.clear();
+  console.log();
+  const navigate = useNavigate();
+  navigate("/");
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
